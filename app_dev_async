@@ -1,0 +1,56 @@
+import streamlit as st
+from PIL import Image
+import cv2
+import numpy as np
+import httpx
+
+# Set page tab display
+st.set_page_config(
+   page_title="CompVis - Computer Vision for Industrial Safety and Attendance",
+   page_icon="👷‍♂️",
+   layout="wide",
+   initial_sidebar_state="expanded",
+)
+
+# API URL
+url = 'http://localhost:8000'
+
+# App title and description
+st.title("CompVis - Computer Vision for Industrial Safety and Attendance")
+st.markdown(
+    "This application uses computer vision to detect and identify faces in videos"
+)
+
+st.markdown("---")
+
+### Create a native Streamlit file upload input
+st.markdown("### Upload an image for prediction")
+img_file_buffer = st.file_uploader('')
+
+if img_file_buffer is not None:
+    col1, col2 = st.columns(2)
+
+    with col1:
+        ### Display the image user uploaded
+        img_array = np.array(bytearray(img_file_buffer.read()), dtype=np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        st.image(img, channels="BGR", use_column_width=True)
+
+    with col2:
+        with st.spinner("Identifying faces..."):
+            ### Get bytes from the file buffer
+            img_bytes = img_file_buffer.getvalue()
+
+            ## Make request to API (stream=True to stream response as bytes)
+            async with httpx.AsyncClient() as client:
+                res = await client.post(url + "/detect_faces", files={'img': img_bytes})
+
+            if res.status_code == 200:
+                ## Convert the image bytes to numpy array
+                content = np.frombuffer(res.content, np.uint8)
+                img = cv2.imdecode(content, cv2.IMREAD_COLOR)
+                ## Display the image returned by the API
+                st.image(img, channels="BGR", use_column_width=True)
+            else:
+                st.markdown("**Oops**, something went wrong 😓 Please try again.")
+                print(res.status_code, res.content)
