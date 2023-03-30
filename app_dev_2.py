@@ -5,7 +5,7 @@ import subprocess
 import os
 # Set page tab display
 st.set_page_config(
-   page_title="CompVis - Computer Vision for Industrial Safety and Attendance",
+   page_title="CompVis - Computer Vision for Industrial Safety",
    page_icon="👷‍♂️",
    layout="wide",
    initial_sidebar_state="expanded",
@@ -81,7 +81,22 @@ if page_selection == "Video Detection":
 
 elif page_selection == "Project Info":
     st.subheader("Project Info")
-    st.write("This is the page for project info.")
+    st.write("Have you ever visited an industry facility where employees use ID cards to mark attendence?")
+    st.text("")
+    st.write("During emergency evacuations, it can be very hard to monitor the employees who are safe and those who are still inside the facility.")
+    st.text("")
+    st.write("Additionally, during assembly point checks, the process of manually verifying the presence of each employee can be time consuming and prone to errors.")
+    st.text("")
+    st.text("")
+    st.text("")
+    st.write("To solve this, we use advanced computer vision and person detection techniques to accurately monitor the employees who are outside the facility during emegencies.")
+    st.text("")
+    st.text("")
+    st.write("Our system also helps to detect employeeat enterance to know who was present in workplace during emergency.")
+    st.text("")
+    st.text("")
+    st.write("To make the project more engaging, we considered the iconic fire drill scene from TV series (THE OFFICE).")
+    st.write("Model trained on 6 charachters from the series and made to predict the faces with lables.")
 
 elif page_selection == "About Us":
     st.subheader("About Us")
