@@ -2,7 +2,6 @@ import streamlit as st
 from PIL import Image
 import requests
 import subprocess
-import ffmpeg
 import os
 # Set page tab display
 st.set_page_config(
