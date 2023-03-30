@@ -100,4 +100,7 @@ elif page_selection == "Project Info":
 
 elif page_selection == "About Us":
     st.subheader("About Us")
-    st.write("This is the page for information about the development team.")
+    st.title("Kolapally Sai kalyan")
+    st.title("Daniel Osório")
+    st.title("Merle Marie Buchmann")
+    st.title("Kranthi Maddishetty")
