@@ -3,6 +3,7 @@ from PIL import Image
 import requests
 import subprocess
 import ffmpeg
+import os
 # Set page tab display
 st.set_page_config(
    page_title="CompVis - Computer Vision for Industrial Safety and Attendance",
@@ -12,7 +13,7 @@ st.set_page_config(
 )
 
 # API URL
-url = 'http://localhost:8000'
+url = 'https://compvimgwithvideo-2ohawdromq-ew.a.run.app'
 
 # App title and description
 st.title("CompVis - Computer Vision for Industrial Safety and Attendance")
@@ -20,7 +21,7 @@ st.markdown(
     "This application uses computer vision to detect and identify faces in videos"
 )
 # Add image to top of sidebar
-st.sidebar.image("/home/kolapally/code/kolapally/streamlit/img/logo-color.png", use_column_width=True)
+st.sidebar.image("img/logo-color.png", use_column_width=True)
 
 # Sidebar links
 st.sidebar.markdown("# Navigation")
@@ -41,7 +42,7 @@ if page_selection == "Image Detection":
         with col2:
             with st.spinner("Identifying faces..."):
                 img_bytes = img_file_buffer.getvalue()
-                res = requests.post(url + "/detect_faces", files={'img': img_bytes})
+                res = requests.post(url + "/detect_image", files={'img': img_bytes})
 
                 if res.status_code == 200:
                     st.image(res.content, use_column_width=True)
@@ -63,6 +64,9 @@ if page_selection == "Video Detection":
             with st.spinner("Labeling faces ..."):
                 # img_bytes = img_file_buffer.getvalue()
                 res = requests.post(url + "/detect_video", files={'video': video_file_buffer})
+                video_path = os.path.join(os.getcwd(),'output.mp4')
+                if os.path.exists(video_path):
+                    os.remove(video_path)
 
                 if res.status_code == 200:
                     video_bytes = res.content
