@@ -23,15 +23,15 @@ st.markdown(
     "We are migrating the backbone and update the api .... Here's the demo "
 )
 
+import webbrowser
 
-from bokeh.models.widgets import Div
 
-if st.button('Go to Demo'):
-    js = "window.open('https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link')"  # New tab or window
-    js = "window.location.href = 'https://compvis.streamlit.app/'"  # Current tab
-    html = '<img src onerror="{}">'.format(js)
-    div = Div(text=html)
-    st.bokeh_chart(div)
+def open_support_ticket():
+    email_link = "https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link"
+    webbrowser.open(email_link)
+
+st.button("Demo", on_click=open_support_ticket)
+
 
 # Add image to top of sidebar
 st.sidebar.image("img/logo-color.png", use_column_width=True)
