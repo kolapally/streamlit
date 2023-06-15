@@ -28,7 +28,7 @@ from bokeh.models.widgets import Div
 
 if st.button('Go to Demo'):
     js = "window.open('https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link')"  # New tab or window
-    js = "window.location.href = 'https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link'"  # Current tab
+    js = "window.location.href = 'https://compvis.streamlit.app/'"  # Current tab
     html = '<img src onerror="{}">'.format(js)
     div = Div(text=html)
     st.bokeh_chart(div)
