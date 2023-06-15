@@ -23,14 +23,10 @@ st.markdown(
     "We are migrating the backbone and update the api .... Here's the demo "
 )
 
-import webbrowser
+st.markdown(
+<a href={'https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link'}><button style="background-color:GreenYellow;">Demo</button></a>
+,unsafe_allow_html=True)
 
-
-def open_support_ticket():
-    email_link = "https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link"
-    webbrowser.open(email_link)
-
-st.button("Demo", on_click=open_support_ticket)
 
 
 # Add image to top of sidebar
