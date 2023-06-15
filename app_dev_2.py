@@ -3,7 +3,6 @@ from PIL import Image
 import requests
 import subprocess
 import os
-import webbrowser
 # Set page tab display
 st.set_page_config(
    page_title="CompVis - Computer Vision for Industrial Safety",
@@ -26,9 +25,7 @@ st.markdown(
 
 
 url1 = 'https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link'
-
-if st.button('demo'):
-    webbrowser.open_new_tab(url1)
+st.button('Open link', on_click=open_page, args=(url1,))
 # Add image to top of sidebar
 st.sidebar.image("img/logo-color.png", use_column_width=True)
 
