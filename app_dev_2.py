@@ -19,6 +19,13 @@ st.title("CompVis - Computer Vision for Industrial Safety and Attendance")
 st.markdown(
     "This application uses computer vision to detect and identify faces in videos"
 )
+st.markdown(
+    "We are migrating the backbone and update the api .... Here's the demo "
+)
+video_file = open('video.mp4', 'rb')
+video_bytes = video_file.read()
+
+st.video(video_bytes)
 # Add image to top of sidebar
 st.sidebar.image("img/logo-color.png", use_column_width=True)
 
