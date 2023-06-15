@@ -25,7 +25,12 @@ st.markdown(
 
 
 url1 = 'https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link'
-st.button('Open link', on_click=open_page, args=(url1,))
+
+st.markdown(f'''
+<a href={url1}><button style="background-color:GreenYellow;">Demo</button></a>
+''',
+unsafe_allow_html=True)
+
 # Add image to top of sidebar
 st.sidebar.image("img/logo-color.png", use_column_width=True)
 
