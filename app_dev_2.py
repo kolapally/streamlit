@@ -22,7 +22,7 @@ st.markdown(
 st.markdown(
     "We are migrating the backbone and update the api .... Here's the demo "
 )
-video_file = open('video.mp4', 'rb')
+video_file = open('video.h264', 'rb')
 video_bytes = video_file.read()
 
 st.video(video_bytes)
