@@ -20,10 +20,10 @@ st.markdown(
     "This application uses computer vision to detect and identify faces in videos"
 )
 st.markdown(
-    "We are migrating the backbone and update the api .... Here's the demo "
+    "👷‍♂️ work in progress: our app is currently down. We are migrating the backend and updating the API... See it in action in this demo video "
 )
 
-st.markdown('https://drive.google.com/file/d/14Pts-myn9U9taXya8_OH0lK9TPHNUFoZ/view?usp=drive_link')
+st.markdown('https://drive.google.com/file/d/1nbOl3mUyAyEcyQH7v04KyAABqTwXVLKO/view?usp=drive_link')
 
 
 
